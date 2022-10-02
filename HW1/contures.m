@@ -11,7 +11,7 @@ Re = real(z.^3 + z.^2 + z.^2*1i*m - z.*k + 1);
 %Создаем рамку
 figure(1);
 xlabel('$Re(z)$', Interpreter = 'latex', FontSize = 14);
-ylabel('$Im($', Interpreter = 'latex', FontSize = 14);
+ylabel('$Im(z)$', Interpreter = 'latex', FontSize = 14);
 grid on;
 hold on;
 
