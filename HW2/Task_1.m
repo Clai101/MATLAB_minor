@@ -21,7 +21,7 @@ hold on;
 contour(x, y, angle(Q(z)), [0,  pi /6,  pi /3, pi/2, pi], 'ShowText', 'on', Color = 'red');
 hold on;
 %Создаем легенду
-legend('$\left| \frac{1}{z^3 + imz^2 - kz + 1} \right| $',['$Arg \{  \frac{1}{z^3 + imz^2 - kz + 1}\}$'], Interpreter = 'latex', FontSize = 10)
+legend('$\left| \frac{1}{z^3 + imz^2 - kz + 1} \right| $','$Arg \{  \frac{1}{z^3 + imz^2 - kz + 1}\}$', Interpreter = 'latex', FontSize = 10)
 
 %% Доп корень
 k = 1; m = 15;
