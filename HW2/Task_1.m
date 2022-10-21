@@ -15,6 +15,7 @@ set (gca, "xaxislocation", "origin")
 set (gca, "yaxislocation", "origin")
 hold on;
 
+
 %Выводим графики
 contour(x, y, abs(Q(z)),[0, 1, 2, 3, 4, 5, 10], 'ShowText', 'on', Color = 'blue');
 hold on;
