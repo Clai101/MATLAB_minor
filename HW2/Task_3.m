@@ -1,12 +1,24 @@
 %% Строим графики
 k = 1; m = 15;
-[x,y] = meshgrid(linspace( -0.0001,1, 30), linspace(0,1 ,30));
-z = complex(x, y);
+x =linspace( -0.0001,1, 300000);
+P = @(z)  z^3 + (1i*m)*z^2 - k* z +1;
 
 % Определяем функцию и облась
 f = @(x)  x.^2;
-Q = @(z) z;
+Q = @(x) x;
 
+sum_1 = complex(0,0);
+sum_2 = complex(0,0);
+for itr = 2:length(x)
+    sum_1 = sum_1 + ((x(itr) +1i*x(itr)^2)- (x(itr-1) +1i*x(itr-1)^2)) * P((x(itr-1) +1i*x(itr-1)^2));
+end
+
+for itr = 2:length(x)
+    sum_2 = sum_2 + ((x(itr) +1i*x(itr))- (x(itr-1) +1i*x(itr-1))) * (P( x(itr-1) +1i*x(itr-1)) +P(x(itr) +1i*x(itr)))/2;
+end
+
+disp(sum_2)
+disp(sum_1)
 %Создаем рамку
 figure(1);
 xlabel('$Re(z)$', Interpreter = 'latex', FontSize = 14);
@@ -19,11 +31,8 @@ hold on;
 %Выводим графики
 fplot(f, [0, 1], 'Linewidth',2);
 hold on;
-contour(x, y, real(Q(z)), [0,0], 'Linewidth',2,  Color = 'red');
+fplot(Q,[0,1], 'Linewidth',2,  Color = 'red');
 hold on;
-contour(x, y, imag(Q(z)), [1,1], 'Linewidth',2,   Color = 'red');
-hold on;
-
 
 %Создаем легенду
-legend('$Re \{z^3 + imz^2 - kz + 1\}$','$Im \{z^3 + imz^2 - kz + 1\}$', Interpreter = 'latex', FontSize = 10)
+legend('$ \gamma $','$ x+ix $', Interpreter = 'latex', FontSize = 10)
