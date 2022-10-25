@@ -1,7 +1,7 @@
 function [z_root, z_path] = newton_method(f, df, z_0)
 
 eps = 10^(-8);
-max_k = 200;
+max_k = 500;
 
 z_path = NaN(max_k + 1, 1);
 z_path(1) = z_0;
