@@ -5,9 +5,9 @@ p = linspace( -2,2, 100);
 transformed = @(x) imag(w(f(x)));
 f = @(x) complex(x, x.*k*(-1)^m);
 w = @(z) 1/2 * (z + 1/z);
-
 min_x = [-0.022, 0.022];
 min_y = [transformed(min_x(1)),transformed(min_x(2))];
+
 %Окно и настройки
 figure(1);
 xlabel('$Re(z)$', Interpreter = 'latex', FontSize = 14);
