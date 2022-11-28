@@ -19,14 +19,14 @@ for itr = 1:n
     lambda(itr,:) = real(time);
     %Условие на нужное мне b_0
     if and( lambda(itr,2) < 1 + 10^(-6),   1 - 10^(-6) < lambda(itr,2)) 
-        b_0 =x(itr)
+        b_0 = x(itr)
     end
 end
 for itr = 2:y+1
     kogort(:, itr) = lesli(b_0) * kogort(:,itr-1);
 end
 
-%выод езультатов
+%вывод результатов
 figure(1);
 plot(x, lambda);
 legend('$\lambda_1$', '$\lambda_2$', '$\lambda_3$', '$\lambda_4$', Interpreter = 'latex', FontSize = 14);
