@@ -1,0 +1,30 @@
+k = 15; m =1;
+eps = [0, -(2*k + m/2)^(-1), (2*k + m/2)^(-1)];
+[x, y] = meshgrid(linspace(-100, 100, 1501), linspace(-10, 10, 1501));
+dx = y - x.*(eps(1)*x.^2 + y.^2 - k - 0.5);
+dy = -x - y.*(eps(1)*x.^2 + y.^2 - k - 0.5);
+
+figure(1);
+streamslice(x, y, dx, dy)
+hold on;
+xlabel('$x$', Interpreter = 'latex', FontSize = 14);
+ylabel('$y$', Interpreter = 'latex', FontSize = 14);
+hold on;
+grid on;
+title(['$\epsilon = $' num2str(eps(1))], Interpreter = 'latex', FontSize = 14)
+hold off;
+for i = 2:3
+    [x, y] = meshgrid(linspace(-10/(abs(eps(i)*k)), 10/(abs(eps(i))*k), 1501), linspace(-10, 10, 1501));
+    dx = y - x.*(eps(i)*x.^2 + y.^2 - k - 0.5);
+    dy = -x - y.*(eps(i)*x.^2 + y.^2 - k - 0.5);
+    
+    figure(i);
+    streamslice(x, y, dx, dy)
+    hold on;
+    xlabel('$x$', Interpreter = 'latex', FontSize = 14);
+    ylabel('$y$', Interpreter = 'latex', FontSize = 14);
+    hold on;
+    grid on;
+    title(['$\epsilon = $' num2str(eps(i))], Interpreter = 'latex', FontSize = 14)
+    hold off;
+end
