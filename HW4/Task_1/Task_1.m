@@ -2,10 +2,10 @@
 eps = -.5;
 R = -3.4;
 m = 1; k = 15;
-l = -sqrt(m/pi); a = -1/6; b = sqrt((m+k)/pi)/4-sqrt(m/pi)/4; c = 0;  d = 0;
-r_1 = sqrt(m/pi);
+l = -sqrt(k/pi); a = -0.7; b = (sqrt((m+k)/pi)-sqrt(k/pi))*3*a/2; c = 0;  d = 0;
+r_1 = sqrt(k/pi);
 r_2 = sqrt((m+k)/pi);
-[x, y] = meshgrid(linspace(-3, 3, 1001));
+[x, y] = meshgrid(linspace(-3, 3, 3001));
 r = sqrt(x.^2 + y.^2);
 phi = linspace(0, 2*pi);
 
