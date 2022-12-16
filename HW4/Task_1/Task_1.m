@@ -2,10 +2,10 @@
 eps = -.5;
 R = -3.4;
 m = 1; k = 15;
-l = -sqrt(k/pi); a = -0.7; b = (sqrt((m+k)/pi)-sqrt(k/pi))*3*a/2; c = 0;  d = 0;
+l = -sqrt(k/pi); a = -1.6; b = (sqrt((m+k)/pi)-sqrt(k/pi))*3*a/2; c = 0;  d = 0;
 r_1 = sqrt(k/pi);
 r_2 = sqrt((m+k)/pi);
-[x, y] = meshgrid(linspace(-3, 3, 3001));
+[x, y] = meshgrid(linspace(-2.5 , 2.5, 501));
 r = sqrt(x.^2 + y.^2);
 phi = linspace(0, 2*pi);
 
@@ -22,7 +22,7 @@ hold on;
 xlabel('x');
 ylabel('y');
 axis equal;
-axis([-3 3 -3 3]);
+axis([-2.5 2.5 -2.5 2.5]);
 legend('$r_1$', '$r_2$', '$Stream$', Interpreter = 'latex', FontSize = 10)
 
 
