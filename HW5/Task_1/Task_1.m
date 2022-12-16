@@ -39,3 +39,15 @@ fcontour(@(x, y) imag(P(x,y)));
 xlabel('x')
 ylabel('y')
 title('Im(P(z))')
+
+figure(4)
+nexttile
+fcontour(@(x, y) abs(P(x,y) - f(x,y)) );
+xlabel('x')
+ylabel('y')
+title('$\Delta_{P(z)}$', 'Interpreter', 'latex');
+nexttile
+fcontour(@(x, y) abs(T(x,y) - f(x,y)) );
+xlabel('x')
+ylabel('y')
+title('$\Delta_{T(z)}$', 'Interpreter', 'latex');
